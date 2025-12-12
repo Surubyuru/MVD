@@ -1,0 +1,108 @@
+.clients {
+    background: var(--color-bg-primary);
+    overflow: hidden;
+    padding-bottom: var(--spacing-3xl);
+    position: relative;
+}
+
+.logos-slider {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    /* Aumenté un poco la altura */
+    overflow: hidden;
+    margin-top: var(--spacing-xl);
+    /* Máscara suave */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    padding: 10px 0;
+    /* Espacio para la sombra */
+}
+
+.logos-slide-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+    gap: var(--spacing-3xl);
+}
+
+.logos-slider:hover .logos-slide-track {
+    animation-play-state: paused;
+}
+
+.logo-slide {
+    height: 100px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fondo blanco para asegurar visibilidad */
+    background: rgba(255, 255, 255, 0.95);
+    transition: all var(--transition-base);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.logo-slide:hover {
+    transform: scale(1.05);
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+.logo-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Eliminamos el filtro grayscale para que se vean mejor sobre fondo blanco */
+    filter: none;
+}
+
+/* Placeholder elegante */
+.placeholder-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #ddd;
+    border-radius: var(--radius-md);
+    color: #666;
+}
+
+.placeholder-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.placeholder-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-slide {
+        width: 140px;
+        height: 80px;
+    }
+
+    .logos-slide-track {
+        gap: var(--spacing-xl);
+        animation-duration: 40s;
+    }
+}
