@@ -181,156 +181,163 @@
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 768px) {
-    /* Services.css additions for Carousel Slide View */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
 
-    .service-card-carousel-mode {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-        /* Remove padding to let carousel fill */
-        background: var(--color-bg-tertiary);
-        /* Slightly different bg */
-        min-height: 500px;
-        /* Ensure height for content */
+/* Services.css additions for Carousel Slide View */
+
+.service-card-carousel-mode {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /* Remove padding to let carousel fill */
+    background: var(--color-bg-tertiary);
+    /* Slightly different bg */
+    min-height: 500px;
+    /* Ensure height for content */
+}
+
+.carousel-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.carousel-slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    text-align: center;
+    animation: fade-in-slide 0.5s ease;
+}
+
+@keyframes fade-in-slide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
 
-    .carousel-wrapper {
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .carousel-slide-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* Center horizontally */
-        justify-content: center;
-        /* Center vertically */
-        text-align: center;
-        animation: fade-in-slide 0.5s ease;
-    }
+.carousel-top {
+    margin-bottom: 1.5rem;
+}
 
-    @keyframes fade-in-slide {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
+.module-icon-large {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
+}
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+.module-icon-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-    .carousel-top {
-        margin-bottom: 1.5rem;
-    }
+.module-features-list {
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+    /* Limit width */
+    margin: 0 auto;
+}
 
-    .module-icon-large {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 1rem;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
-    }
+.module-feature-item {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-    .module-icon-large img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+.module-feature-item:last-child {
+    border-bottom: none;
+}
 
-    .module-features-list {
-        list-style: none;
-        text-align: left;
-        width: 100%;
-        max-width: 400px;
-        /* Limit width */
-        margin: 0 auto;
-    }
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+}
 
-    .module-feature-item {
-        padding: 0.5rem 0;
-        font-size: 0.95rem;
-        color: var(--color-text-secondary);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
 
-    .module-feature-item:last-child {
-        border-bottom: none;
-    }
+.carousel-btn:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+}
 
-    .carousel-controls {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: auto;
-        padding-top: 1rem;
-    }
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+}
 
-    .carousel-btn {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-    }
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
 
-    .carousel-btn:hover {
-        background: var(--color-primary);
-        transform: scale(1.1);
-    }
+.indicator.active {
+    background: var(--color-primary);
+    transform: scale(1.2);
+}
 
-    .carousel-indicators {
-        display: flex;
-        gap: 8px;
-    }
+/* Update standard service card for image logo */
+.service-icon.is-image {
+    width: 150px;
+    /* Adjust size for the logo */
+    height: auto;
+    font-size: 0;
+    /* Hide emoji font size */
+    margin-bottom: 1rem;
+    border-radius: 0;
+    transform: none !important;
+    /* Disable rotation on hover for logo */
+}
 
-    .indicator {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .indicator.active {
-        background: var(--color-primary);
-        transform: scale(1.2);
-    }
-
-    /* Update standard service card for image logo */
-    .service-icon.is-image {
-        width: 150px;
-        /* Adjust size for the logo */
-        height: auto;
-        font-size: 0;
-        /* Hide emoji font size */
-        margin-bottom: 1rem;
-        border-radius: 0;
-        transform: none !important;
-        /* Disable rotation on hover for logo */
-    }
-
-    .service-icon.is-image img {
-        width: 100%;
-        height: auto;
-        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-    }
+.service-icon.is-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
