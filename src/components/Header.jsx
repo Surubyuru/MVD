@@ -8,16 +8,23 @@ const Header = ({ scrolled }) => {
         { label: 'Inicio', href: '#hero' },
         { label: 'Servicios', href: '#services' },
         { label: 'Nosotros', href: '#about' },
+        { label: 'Blog', href: '#blog' },
         { label: 'Contacto', href: '#contact' }
     ]
 
     const handleNavClick = (e, href) => {
-        e.preventDefault()
         setMenuOpen(false)
+
+        // Check if we are navigating to a different view (Blog/Admin)
+        // or if the element doesn't exist on current page (switching back to Home)
         const element = document.querySelector(href)
+
         if (element) {
+            // Anchor exists on current page, smooth scroll
+            e.preventDefault()
             element.scrollIntoView({ behavior: 'smooth' })
         }
+        // Else: let default behavior happen (hash change) so App.jsx can switch views
     }
 
     return (

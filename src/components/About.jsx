@@ -44,16 +44,12 @@ const About = () => {
                         </p>
                         <div className="about-highlights">
                             <div className="highlight">
-                                <div className="highlight-number text-gradient">15+</div>
-                                <div className="highlight-text">Años en el mercado</div>
+                                <div className="highlight-number text-gradient">12000+</div>
+                                <div className="highlight-text">Usuarios</div>
                             </div>
                             <div className="highlight">
-                                <div className="highlight-number text-gradient">50+</div>
-                                <div className="highlight-text">Profesionales expertos</div>
-                            </div>
-                            <div className="highlight">
-                                <div className="highlight-number text-gradient">30+</div>
-                                <div className="highlight-text">Países atendidos</div>
+                                <div className="highlight-number text-gradient">90+</div>
+                                <div className="highlight-text">Clientes</div>
                             </div>
                         </div>
                     </div>

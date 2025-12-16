@@ -9,11 +9,7 @@ const Footer = () => {
             { label: 'Servicios', href: '#services' },
             { label: 'Contacto', href: '#contact' }
         ],
-        legal: [
-            { label: 'Privacidad', href: '#' },
-            { label: 'Términos', href: '#' },
-            { label: 'Cookies', href: '#' }
-        ]
+
     }
 
     return (
@@ -44,18 +40,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div className="footer-column">
-                            <h4 className="footer-column-title">Legal</h4>
-                            <ul className="footer-links">
-                                {footerLinks.legal.map((link, index) => (
-                                    <li key={index}>
-                                        <a href={link.href} className="footer-link">
-                                            {link.label}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
 
