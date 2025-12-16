@@ -30,20 +30,25 @@ const Admin = () => {
 
     const handleCreate = async (e) => {
         e.preventDefault();
-        const res = await fetch('/api/posts', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title, content, image, secret: SECRET_KEY })
-        });
+        try {
+            const res = await fetch('/api/posts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, content, image, secret: SECRET_KEY })
+            });
 
-        if (res.ok) {
-            alert('Post creado!');
-            setTitle('');
-            setContent('');
-            setImage('');
-            fetchPosts();
-        } else {
-            alert('Error al crear post');
+            if (res.ok) {
+                alert('Post creado!');
+                setTitle('');
+                setContent('');
+                setImage('');
+                fetchPosts();
+            } else {
+                const errorData = await res.json().catch(() => ({}));
+                alert(`Error al crear post: ${errorData.error || res.statusText || res.status}`);
+            }
+        } catch (error) {
+            alert(`Error de red o conexión: ${error.message}`);
         }
     };
 
