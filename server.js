@@ -127,13 +127,26 @@ app.delete('/api/posts/:id', (req, res) => {
 });
 
 // Serve static files from the build directory
-app.use(express.static(path.join(__dirname, 'dist')));
+// Serve static files from the build directory
+const DIST_DIR = path.join(__dirname, 'dist');
+app.use(express.static(DIST_DIR));
+
+// Health check endpoint (useful for Dokploy/Docker)
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
 
 // Fallback for SPA (Single Page Application)
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    const indexPath = path.join(DIST_DIR, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        res.status(404).send('Error: Build not found. Please ensure "npm run build" ran on the server.');
+    }
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor Backend corriendo en http://localhost:${PORT}`);
+// Listen on 0.0.0.0 to ensure Docker/VPS can map the port correctly
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor Backend corriendo en http://0.0.0.0:${PORT}`);
 });
