@@ -137,7 +137,7 @@ app.get('/health', (req, res) => {
 });
 
 // Fallback for SPA (Single Page Application)
-app.get('(.*)', (req, res) => {
+app.get(/.*/, (req, res) => {
     const indexPath = path.join(DIST_DIR, 'index.html');
     if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);
