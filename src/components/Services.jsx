@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import './Services.css'
 
-// Import module icons
-import icon1 from '../assets/modules/Icono con Borde (1).png'
-import icon2 from '../assets/modules/Icono con Borde (2).png'
-import icon3 from '../assets/modules/Icono con Borde (3).png'
-import icon4 from '../assets/modules/Icono con Borde (4).png'
-import icon5 from '../assets/modules/Icono con Borde (5).png'
-import icon6 from '../assets/modules/Icono con Borde (6).png'
-// Keep others just in case for future use
-import icon7 from '../assets/modules/Icono con Borde (7).png'
+// Import module icons (remapped to new filenames)
+import icon_documental from '../assets/modules/Gestion_Documental.png'
+import icon_formularios from '../assets/modules/Formularios.png'
+// Using generic icon for Auditorias as no specific rename was found for it yet, 
+// assuming 'Icono con Borde (2)' is suitable or placeholder.
+import icon_auditorias from '../assets/modules/Icono con Borde (2).png'
+import icon_clientes from '../assets/modules/Gestion_Clientes.png'
+import icon_proveedores from '../assets/modules/Proveedores.png'
+import icon_riesgos from '../assets/modules/Riesgos.png'
+
 import mvdQualityLogo from '../assets/mvd_quality_logo.png'
 
 const Services = () => {
@@ -18,7 +19,7 @@ const Services = () => {
 
     const modulesData = [
         {
-            icon: icon1,
+            icon: icon_documental,
             title: 'Gestión Documental',
             features: [
                 '📂 Repositorio centralizado: organiza y protege toda la documentación.',
@@ -29,7 +30,7 @@ const Services = () => {
             ]
         },
         {
-            icon: icon2,
+            icon: icon_formularios,
             title: 'Formularios y Expedientes',
             features: [
                 '📝 Formularios y expedientes a medida sin limitaciones.',
@@ -40,7 +41,7 @@ const Services = () => {
             ]
         },
         {
-            icon: icon3,
+            icon: icon_auditorias,
             title: 'Auditorías Internas',
             features: [
                 '📅 Planificación de objetivos y alcance.',
@@ -51,7 +52,7 @@ const Services = () => {
             ]
         },
         {
-            icon: icon4,
+            icon: icon_clientes,
             title: 'Gestión de Clientes',
             features: [
                 '👤 Ficha completa e historial de interacciones.',
@@ -62,7 +63,7 @@ const Services = () => {
             ]
         },
         {
-            icon: icon5,
+            icon: icon_proveedores,
             title: 'Gestión de Proveedores',
             features: [
                 '🏢 Ficha centralizada del proveedor.',
@@ -72,7 +73,7 @@ const Services = () => {
             ]
         },
         {
-            icon: icon6,
+            icon: icon_riesgos,
             title: 'Evaluación de Riesgos',
             features: [
                 '⚠ Identificación de amenazas potenciales.',
