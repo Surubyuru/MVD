@@ -23,14 +23,14 @@ const Admin = () => {
     };
 
     const fetchPosts = () => {
-        fetch('http://localhost:3001/api/posts')
+        fetch('/api/posts')
             .then(res => res.json())
             .then(setPosts);
     };
 
     const handleCreate = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:3001/api/posts', {
+        const res = await fetch('/api/posts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, content, image, secret: SECRET_KEY })
@@ -50,7 +50,7 @@ const Admin = () => {
     const handleDelete = async (id) => {
         if (!confirm('¿Seguro que quieres borrar este post?')) return;
 
-        await fetch(`http://localhost:3001/api/posts/${id}`, {
+        await fetch(`/api/posts/${id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ secret: SECRET_KEY })

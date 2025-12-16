@@ -7,8 +7,9 @@ const Blog = () => {
     const [loading, setLoading] = useState(true);
     const [selectedPost, setSelectedPost] = useState(null);
 
+
     useEffect(() => {
-        fetch('http://localhost:3001/api/posts')
+        fetch('/api/posts')
             .then(res => res.json())
             .then(data => {
                 setPosts(data);

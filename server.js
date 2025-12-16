@@ -126,6 +126,14 @@ app.delete('/api/posts/:id', (req, res) => {
     }
 });
 
+// Serve static files from the build directory
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Fallback for SPA (Single Page Application)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor Backend corriendo en http://localhost:${PORT}`);
 });
