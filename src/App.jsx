@@ -8,12 +8,18 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
 import Admin from './components/Admin'
+import NotFound from './components/NotFound'
+import Loader from './components/Loader'
 
 function App() {
     const [scrolled, setScrolled] = useState(false)
-    const [currentView, setCurrentView] = useState('home') // home, blog, admin
+    const [currentView, setCurrentView] = useState('home') // home, blog, admin, 404
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // Initial fake loader for premium feel
+        setTimeout(() => setLoading(false), 2000);
+
         const handleScroll = () => {
             setScrolled(window.scrollY > 50)
         }
@@ -27,10 +33,10 @@ function App() {
                 setCurrentView('admin');
                 window.scrollTo(0, 0);
             } else {
-                // If hash is empty or one of the section hashes (#contact, #hero), stay on home
-                // We assume section hashes are for scrolling within home
                 if (hash === '' || hash === '#hero' || hash === '#services' || hash === '#about' || hash === '#contact') {
                     setCurrentView('home');
+                } else {
+                    setCurrentView('404');
                 }
             }
         };
@@ -38,7 +44,6 @@ function App() {
         window.addEventListener('scroll', handleScroll)
         window.addEventListener('hashchange', handleHashChange)
 
-        // Check initial hash
         handleHashChange();
 
         return () => {
@@ -46,6 +51,10 @@ function App() {
             window.removeEventListener('hashchange', handleHashChange)
         }
     }, [])
+
+    if (loading) {
+        return <Loader fullScreen={true} />
+    }
 
     return (
         <div className="app">
@@ -62,6 +71,7 @@ function App() {
                 )}
                 {currentView === 'blog' && <Blog />}
                 {currentView === 'admin' && <Admin />}
+                {currentView === '404' && <NotFound />}
             </main>
             <Footer />
         </div>

@@ -1,0 +1,40 @@
+.not-found-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.not-found-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: rgba(10, 21, 37, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+}
+
+.error-code {
+    font-size: 8rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+}

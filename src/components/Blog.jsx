@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Loader from './Loader';
 import './Blog.css';
 
 // Simple Blog Component
@@ -21,7 +22,7 @@ const Blog = () => {
     // Filter to remove duplicates if any (data safety)
     const uniquePosts = posts;
 
-    if (loading) return <div className="section container text-center"><h2 className="text-gradient">Cargando Tutoriales...</h2></div>;
+    if (loading) return <div className="section container text-center"><Loader /></div>;
 
     if (selectedPost) {
         return (
