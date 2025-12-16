@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Services.css'
 
 // Import module icons (remapped to new filenames)
@@ -99,13 +99,21 @@ const Services = () => {
         }
     ]
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCarouselIndex((prev) => (prev + 1) % modulesData.length);
+        }, 10000); // Change slides every 10 seconds
+
+        return () => clearInterval(interval);
+    }, [modulesData.length]);
+
     const nextSlide = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         setCarouselIndex((prev) => (prev + 1) % modulesData.length);
     };
 
     const prevSlide = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         setCarouselIndex((prev) => (prev - 1 + modulesData.length) % modulesData.length);
     };
 
