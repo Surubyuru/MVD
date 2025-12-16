@@ -87,6 +87,7 @@ const Services = () => {
     const services = [
         {
             icon: mvdQualityLogo,
+            isImage: true, // Explicit flag to differentiate from emoticon strings
             title: 'MVD Quality',
             description: 'Plataforma líder para gestión de Calidad e ISO. Simplifique auditorías, controle no conformidades y garantice la mejora continua.',
             features: ['ISO 9001, 14001, 45001', 'Gestión de Riesgos', 'Auditorías Digitales', 'Indicadores de Gestión']
@@ -167,8 +168,8 @@ const Services = () => {
                                 </div>
                             ) : (
                                 <>
-                                    <div className={`service-icon ${typeof service.icon !== 'string' ? 'is-image' : ''}`}>
-                                        {typeof service.icon === 'string' ? service.icon : <img src={service.icon} alt={service.title} />}
+                                    <div className={`service-icon ${service.isImage ? 'is-image' : ''}`}>
+                                        {service.isImage ? <img src={service.icon} alt={service.title} /> : service.icon}
                                     </div>
                                     <h3 className="service-title">{service.title}</h3>
                                     <p className="service-description">{service.description}</p>
