@@ -120,6 +120,66 @@
     opacity: 0.1;
 }
 
+/* CAROUSEL STYLES */
+.service-card-carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modules-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-lg);
+}
+
+.modules-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-modules 20s linear infinite;
+}
+
+.module-item {
+    width: 80px;
+    height: 80px;
+    margin: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.module-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.module-item:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes scroll-modules {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move only half because we duplicated the list */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .services-grid {
